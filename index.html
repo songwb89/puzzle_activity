@@ -833,9 +833,31 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            opacity: 0;
         }
         .chest-result.show {
             display: flex;
+            animation: resultFadeIn 0.3s ease-out forwards;
+        }
+        .chest-result.show .chest-result-content,
+        .chest-result.show .merge-reward-icon,
+        .chest-result.show .chest-result-continue {
+            opacity: 0;
+            animation: resultContentIn 0.4s ease-out 0.25s forwards;
+        }
+        @keyframes resultFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes resultContentIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8) translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) translateY(0);
+            }
         }
         .chest-result-title {
             font-family: 'LXGW WenKai', cursive;
@@ -923,7 +945,9 @@
             color: #5D4037;
             cursor: pointer;
             letter-spacing: 2px;
-            animation: continuePulse 1.5s ease-in-out infinite;
+        }
+        .chest-result.show .chest-result-continue {
+            animation: resultContentIn 0.4s ease-out 0.25s forwards, continuePulse 1.5s ease-in-out 0.65s infinite;
         }
         @keyframes continuePulse {
             0%, 100% { opacity: 0.6; }
