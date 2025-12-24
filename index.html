@@ -2339,8 +2339,10 @@
                 document.getElementById('reward1Check').classList.add('show');
                 // 启用索要碎片按钮
                 document.getElementById('requestBtn').classList.remove('disabled');
-                // 弹出合成奖励结果页
-                document.getElementById('mergeResult').classList.add('show');
+                // 延迟0.5秒后弹出合成奖励结果页
+                setTimeout(() => {
+                    document.getElementById('mergeResult').classList.add('show');
+                }, 500);
             });
         });
         
